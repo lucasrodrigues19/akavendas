@@ -1,0 +1,8 @@
+AULA 1
+	1 - npm install --global yarn -> gerenciador de dependencias e build
+	2 - npx create-react-app frontend --template typescript-> criando uma estrutura do app react com o nome frontend e linguagem basica typescript
+	3 - excluir a pasta .git do projeto fontend
+	4 - ver se está funcionando: dentro da pasta frontend, comando yarn start, para parar CTRL+C
+	OBSERVAÇÕES
+		caso der erro no maven, update project, ou apagar a pasta.m2(na pasta .m2 do seu usuário apagar a pasta .m2)
+		erro do de jre, projeto/properties/java build path/libraries/jre system libraires/edit/
