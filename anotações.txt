@@ -6,3 +6,25 @@ AULA 1
 	OBSERVAÇÕES
 		caso der erro no maven, update project, ou apagar a pasta.m2(na pasta .m2 do seu usuário apagar a pasta .m2)
 		erro do de jre, projeto/properties/java build path/libraries/jre system libraires/edit/
+PAREI EM 37:35 Limpar o projeto js
+	5 - Limpando o projeto react:
+		Na pasta public deixar so index.html e favicon.ico, OBS: a div root é onde a aplicação vai rodar
+		Em src, deixar apenas os arquivos: App.tsx, index.tsx, react-app-env.d.ts, setupTests.ts
+	6 - Mexer no arquivo tsconfig.json, OBS é um arquivo que tem varias configurações para orientar como a com-
+	   pilação do type-script vai acontecer
+		No começo na chave "compilerOptions:{", inserir: baseUrl: ".src/", isso é para orientar o typescript
+		que os arquivos que irei importar ta apartir de .src
+	7 - adicionar Arquivo /public/_redirects: é necessario para que rode bem no Netflix, no conteudo colocar: 
+		/index.html 200
+	8 - limpar os imports que deletei em App.tsx
+	
+	9 - Em app.tsx, ex:
+				function App() {
+  						return (
+     							 <div>
+     							  <h1>Olá Mundo</h1>
+     							 </div>
+  							);
+						}
+	Minha aplicação vai retornar uma </div>
+	10 - limpar o arquivo index.tsx
