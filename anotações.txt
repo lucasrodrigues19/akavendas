@@ -28,3 +28,13 @@ PAREI EM 37:35 Limpar o projeto js
 						}
 	Minha aplicação vai retornar uma </div>
 	10 - limpar o arquivo index.tsx
+PAREI EM 48:50 Adicionando o bootstrap
+	11 - site getbootstrap.com, um site que ja tem uma estrutura pronta para designe
+	12 - no terminal do frontend, roda o comando yarn add bootstrap(Qualquer dependencia que faltar, tipo jquery, adicionar)
+	13 - Além de instalar no yarn, no index.tsx, adicionar o import 'bootstrap/dist/css/bootstrap.css'
+	14 - adicionar o assets(recursos) src/assets/css
+	15 - adicionar estilos
+	:root { //adicionando variaveis
+    		--color-primary: #FF8400;
+	}
+	16 - no index, importar o nosso arquivo do assets
