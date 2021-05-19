@@ -1,3 +1,4 @@
+
 AULA 1
 	1 - npm install --global yarn -> gerenciador de dependencias e build
 	2 - npx create-react-app frontend --template typescript-> criando uma estrutura do app react com o nome frontend e linguagem basica typescript
@@ -38,3 +39,21 @@ PAREI EM 48:50 Adicionando o bootstrap
     		--color-primary: #FF8400;
 	}
 	16 - no index, importar o nosso arquivo do assets
+	17 - adicionando componentes
+PAREI EM 01:01:29
+	18 - A base do ract é componente, componente é uma função js
+	     um exemplo de componente é do arquivo App.tsx
+	     tem uma função App, e o comando: export default App, diz que App é visivel para outros arquivos
+	     O index.html é alimentado pelo index.tsx, que chama a função App e alimenta a tag root, lembrando que App vai ser 
+	    um componente setado na div root no index.html
+	19: Exemplos de codigo html, pegar no site getBootstrap
+	20: ex de importar uma imagem para usar no html codigo(<img src={imgLogoAka}) :import imgLogoAka from '../../assets/img/aka-logotipo.jpeg';
+	Em uma função que retorna um componente, pode apenas retornar um elemento,quando tiver dois elementos usar desse jeito:
+		 <>
+      			<NavBar />
+      				<div>
+       				 <h1 className="text-primary">AKA Vendas</h1>
+
+     				 </div>
+   		 </>
+PAREI EM 01:14:00

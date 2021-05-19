@@ -1,9 +1,16 @@
 import React from 'react';
+import NavBar from './components/navBar';
+import DataTable from './components/dataTable'
+import Footer from './components/footer';
 function App() {
   return (
-      <div>
-        <h1 className="text-primary">Olá Mundo</h1>
-      </div>
+    <>
+      <NavBar />
+        <div className="container">
+          <DataTable/>
+        </div>
+      <Footer/>
+    </>
   );
 }
 
