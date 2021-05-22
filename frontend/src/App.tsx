@@ -9,9 +9,7 @@ function App() {
     <>
       <NavBar />
         <div className="container">
-          {/* py-3 espacamento na vertical */}
           <h2 className="text-primary py-3">Dashboard de Vendas</h2> 
-            {/* px-3 espacamento na horziontal */}
           <div className="row px-3">
               <div className="col-xs-12 col-sm-12 col-md-6 text-center">
                 <h5 className="text-secondary">Taxa de sucesso (%)</h5>

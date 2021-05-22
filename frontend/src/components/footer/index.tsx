@@ -21,7 +21,11 @@ const Footer = () =>{
                 </div>
                 <div className="row text-center">
                     <div className="col">
-                        <p className="text-light"><small><strong>AKA SYSTEM</strong></small></p>
+                        <p className="text-light">
+                            <span>AKA SYSTEM &reg;</span>
+                            <br></br>
+                            <span><label><i className="bi bi-person"></i>&nbsp;<small>CEO Lucas Rodrigues</small></label></span>
+                        </p>
                     </div>
                     <div className="col">
                         <div className="btn-group" role="group" aria-label="Basic mixed styles example">

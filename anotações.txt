@@ -85,3 +85,12 @@ PAREI EM 01:15:00
 	22 - Exemplos de graficos apexcharts.com
 PAREU EN 01:22:40
 
+PAREI EM 01:36:00 DA AULA 1
+
+AULA 2
+	Quando clona o projeto do git, ele não baixa as dependencias
+	Cors: Por padrão uma aplicação não pode acessar outra aplicação que está em outro host
+	1- CONFIGURAÇÃO DE SEGURANÇA
+
+
+
