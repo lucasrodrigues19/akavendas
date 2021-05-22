@@ -41,9 +41,9 @@ PAREI EM 48:50 Adicionando o bootstrap
 	16 - no index, importar o nosso arquivo do assets
 	17 - adicionando componentes
 PAREI EM 01:01:29
-	18 - A base do ract é componente, componente é uma função js
+	18 - A base do ract é componente, componente é uma função(pode ter uma logica antes de retornar o html) js que retorna um codigo html
 	     um exemplo de componente é do arquivo App.tsx
-	     tem uma função App, e o comando: export default App, diz que App é visivel para outros arquivos
+	     tem uma função App, e o comando: export default App, diz que App é visivel para outros arquivos.
 	     O index.html é alimentado pelo index.tsx, que chama a função App e alimenta a tag root, lembrando que App vai ser 
 	    um componente setado na div root no index.html
 	19: Exemplos de codigo html, pegar no site getBootstrap
@@ -57,3 +57,31 @@ PAREI EM 01:01:29
      				 </div>
    		 </>
 PAREI EM 01:14:00
+
+
+
+DOCUMENTAÇÂO PARA CODIGO:
+	TABLE
+	Site: https://getbootstrap.com/docs/5.0/content/tables/
+	Referencia:
+	<div className="table-responsive">
+                <table className="table table-striped table-sm">
+                    <thead>
+                        <tr className="table-primary">
+			</tr>
+		   </thead>
+		</table>
+	ICONES
+	COMANDO yarn add i bootstrap-icons
+	Site: https://icons.getbootstrap.com
+	Importar: import 'bootstrap-icons/font/bootstrap-icons.css';
+	
+(ADICIONAR REFERENCIA DO FOOTER)
+PAREI EM 01:15:00
+
+	21 - Adicionar chart:
+		yarn add apexcharts
+		yarn add react-apexcharts
+	22 - Exemplos de graficos apexcharts.com
+PAREU EN 01:22:40
+

@@ -26,17 +26,41 @@ html, body {
 /*macete para colocar o rodarpé fixo */
 .footer {
     flex-shrink: 0;
-    text-align: center;
 }
 
-/* Mudando os estios basicos do bootstrap*/
+/* background*/
 .bg-primary {
     background-color: var(--color-primary) !important;
 }
+.bg-white {
+    background-color: #fff !important;
+}
 
+/*Colors text*/
 .text-primary {
     color: var(--color-primary) !important;
 }
 .text-secondary {
     color: var(--color-secondary) !important;
+}
+.text-white{
+    color: #fff !important;
+}
+.text-grey{
+    color: rgb(209, 209, 209) !important;
+}
+.text-center{
+    text-align: center !important;
+}
+/*Table*/
+.table-primary{
+    --bs-table-bg: var(--color-primary) !important;
+    --bs-table-striped-bg: var(--color-primary) !important;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: var(--color-primary) !important;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: var(--color-primary) !important;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: var(--color-primary) !important;
 }
