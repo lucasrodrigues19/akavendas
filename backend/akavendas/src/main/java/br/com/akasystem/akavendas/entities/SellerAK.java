@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.com.akasystem.akavendas.entities.dto.main.MainDTOAK;
+import br.com.akasystem.akavendas.entities.main.EntityMain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,14 +22,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="tb_sellers")
-public class Seller {
+public class SellerAK  extends EntityMain{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	private String name;
 	
 	@OneToMany(mappedBy = "seller")
-	private List<Sale> sales;
+	private List<SaleAK> sales;
 	
 }

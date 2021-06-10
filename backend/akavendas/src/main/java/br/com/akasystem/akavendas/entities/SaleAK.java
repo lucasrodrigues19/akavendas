@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.akasystem.akavendas.entities.main.EntityMain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +21,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="tb_sales")
-public class Sale {
+public class SaleAK extends EntityMain {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
@@ -33,5 +32,5 @@ public class Sale {
 
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
-	private Seller seller;
+	private SellerAK seller;
 }

@@ -1,0 +1,123 @@
+
+AULA 1
+	1 - npm install --global yarn -> gerenciador de dependencias e build
+	2 - npx create-react-app frontend --template typescript-> criando uma estrutura do app react com o nome frontend e linguagem basica typescript
+	3 - excluir a pasta .git do projeto fontend
+	4 - ver se está funcionando: dentro da pasta frontend, comando yarn start, para parar CTRL+C
+	OBSERVAÇÕES
+		caso der erro no maven, update project, ou apagar a pasta.m2(na pasta .m2 do seu usuário apagar a pasta .m2)
+		erro do de jre, projeto/properties/java build path/libraries/jre system libraires/edit/
+PAREI EM 37:35 Limpar o projeto js
+	5 - Limpando o projeto react:
+		Na pasta public deixar so index.html e favicon.ico, OBS: a div root é onde a aplicação vai rodar
+		Em src, deixar apenas os arquivos: App.tsx, index.tsx, react-app-env.d.ts, setupTests.ts
+	6 - Mexer no arquivo tsconfig.json, OBS é um arquivo que tem varias configurações para orientar como a com-
+	   pilação do type-script vai acontecer
+		No começo na chave "compilerOptions:{", inserir: baseUrl: ".src/", isso é para orientar o typescript
+		que os arquivos que irei importar ta apartir de .src
+	7 - adicionar Arquivo /public/_redirects: é necessario para que rode bem no Netflix, no conteudo colocar: 
+		/index.html 200
+	8 - limpar os imports que deletei em App.tsx
+	
+	9 - Em app.tsx, ex:
+				function App() {
+  						return (
+     							 <div>
+     							  <h1>Olá Mundo</h1>
+     							 </div>
+  							);
+						}
+	Minha aplicação vai retornar uma </div>
+	10 - limpar o arquivo index.tsx
+PAREI EM 48:50 Adicionando o bootstrap
+	11 - site getbootstrap.com, um site que ja tem uma estrutura pronta para designe
+	12 - no terminal do frontend, roda o comando yarn add bootstrap(Qualquer dependencia que faltar, tipo jquery, adicionar)
+	13 - Além de instalar no yarn, no index.tsx, adicionar o import 'bootstrap/dist/css/bootstrap.css'
+	14 - adicionar o assets(recursos) src/assets/css
+	15 - adicionar estilos
+	:root { //adicionando variaveis
+    		--color-primary: #FF8400;
+	}
+	16 - no index, importar o nosso arquivo do assets
+	17 - adicionando componentes
+PAREI EM 01:01:29
+	18 - A base do ract é componente, componente é uma função(pode ter uma logica antes de retornar o html) js que retorna um codigo html
+	     um exemplo de componente é do arquivo App.tsx
+	     tem uma função App, e o comando: export default App, diz que App é visivel para outros arquivos.
+	     O index.html é alimentado pelo index.tsx, que chama a função App e alimenta a tag root, lembrando que App vai ser 
+	    um componente setado na div root no index.html
+	19: Exemplos de codigo html, pegar no site getBootstrap
+	20: ex de importar uma imagem para usar no html codigo(<img src={imgLogoAka}) :import imgLogoAka from '../../assets/img/aka-logotipo.jpeg';
+	Em uma função que retorna um componente, pode apenas retornar um elemento,quando tiver dois elementos usar desse jeito:
+		 <>
+      			<NavBar />
+      				<div>
+       				 <h1 className="text-primary">AKA Vendas</h1>
+
+     				 </div>
+   		 </>
+PAREI EM 01:14:00
+
+
+
+DOCUMENTAÇÂO PARA CODIGO:
+	TABLE
+	Site: https://getbootstrap.com/docs/5.0/content/tables/
+	Referencia:
+	<div className="table-responsive">
+                <table className="table table-striped table-sm">
+                    <thead>
+                        <tr className="table-primary">
+			</tr>
+		   </thead>
+		</table>
+	ICONES
+	COMANDO yarn add i bootstrap-icons
+	Site: https://icons.getbootstrap.com
+	Importar: import 'bootstrap-icons/font/bootstrap-icons.css';
+	
+(ADICIONAR REFERENCIA DO FOOTER)
+PAREI EM 01:15:00
+
+	21 - Adicionar chart:
+		yarn add apexcharts
+		yarn add react-apexcharts
+	22 - Exemplos de graficos apexcharts.com
+PAREU EN 01:22:40
+
+PAREI EM 01:36:00 DA AULA 1
+
+AULA 2
+	Quando clona o projeto do git, ele não baixa as dependencias
+	Cors: Por padrão uma aplicação não pode acessar outra aplicação que está em outro host
+	1- CONFIGURAÇÃO DE SEGURANÇA -> Criar um serviço de segurança(Caso queira)
+	2- Criar a regra de negocio ->
+		Vendedor tem N vendas
+		Não posso ter vendas sem o vendedor
+
+	Seed no banco, é instanciar o banco com alguns dados 
+	Configurando a aplicação, application-dev.properties
+		spring.jpa.open-in-view=false -> não quero ter transação com o banco na controller, so na service e DAO
+		spring.datasource.url=jdbc:h2:mem:testdb -> caminho que vou acessar em memoria
+		spring.datasource.username=sa
+		spring.datasource.password=
+		//Cliente de administraçaõ do h2, vou acessar do navegador para gerenciar meu banco de dados
+		spring.h2.console.enabled=true 
+		spring.h2.console.path=/h2-console
+		spring.jpa.show-sql=true
+		spring.jpa.properties.hibernate.format_sql=true
+
+	Adicionar o arquivo data.sql
+
+PAREI NO 40:00:00
+
+	Configurando o perfil teste para liberar a visualização no H2
+	adicionando camadas
+	DTO: Objetos simples para trafegar dados, entre o service e controllers, sem que esses objetos estejam atrelados a um banco de dados e uma transanção, 
+	     para que trafegue objetos com sessão de banco de dados apenas até a service, depois que resolver o q preciso na camada de serviço vou copiar os dados da entidade para novos objetos que serão os dtos
+	
+	A entidade é monitorada pelo JPA, enquanto existir uma conexão monitorada estou com a conexão do banco aberta
+	 implements Serializable, quer dizer que pode ser convertido para byte
+PAREI NO 01:05:00
+
+	    
