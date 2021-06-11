@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.akasystem.akavendas.entities.main.EntityMain;
@@ -23,6 +25,11 @@ public class MainServiceAK<E extends EntityMain>{
 	public List<E> findAll(){
 		return  mainRepository.findAll();
 	}
+	public Page<E> findAll(Pageable pageable){
+		return  mainRepository.findAll(pageable);
+	}
+	
+	
 	public E findById(Long id){
 		return  mainRepository.findById(id).get();
 	}

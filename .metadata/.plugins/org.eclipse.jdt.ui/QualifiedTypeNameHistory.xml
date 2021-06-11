@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter"/>
-    <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
-    <fullyQualifiedTypeName name="org.springframework.core.env.Environment"/>
-    <fullyQualifiedTypeName name="org.springframework.security.config.http.SessionCreationPolicy"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfigurationSource"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfiguration"/>
@@ -44,7 +40,6 @@
     <fullyQualifiedTypeName name="br.com.akasystem.akavendas.controllers.SellerController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="br.com.akasystem.akavendas.entities.dto.SellerDTOAK"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="br.com.akasystem.akavendas.service.SellerServiceAK"/>
     <fullyQualifiedTypeName name="br.com.akasystem.akavendas.repository.SellerRepositoryAK"/>
     <fullyQualifiedTypeName name="javax.persistence.MappedSuperclass"/>
+    <fullyQualifiedTypeName name="br.com.akasystem.akavendas.entities.dto.SellerDTOAK"/>
+    <fullyQualifiedTypeName name="br.com.akasystem.akavendas.repository.SaleRepositoryAK"/>
+    <fullyQualifiedTypeName name="br.com.akasystem.akavendas.entities.SaleAK"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
 </qualifiedTypeNameHistroy>
