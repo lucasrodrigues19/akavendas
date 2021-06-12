@@ -20,6 +20,9 @@ public class MainServiceAK<E extends EntityMain>{
 	public void setRepository(MainRepositoryAK<E> repository) {
 		this.mainRepository = repository;
 	}
+	public MainRepositoryAK getRepository() {
+		return this.mainRepository;
+	}
 	
 	
 	public List<E> findAll(){

@@ -1,5 +1,7 @@
 package br.com.akasystem.akavendas.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.akasystem.akavendas.entities.SaleAK;
 import br.com.akasystem.akavendas.entities.dto.SaleDTOAK;
+import br.com.akasystem.akavendas.entities.dto.SaleSuccessDTO;
+import br.com.akasystem.akavendas.entities.dto.SaleSumDTO;
 import br.com.akasystem.akavendas.repository.SaleRepositoryAK;
 import br.com.akasystem.akavendas.service.main.MainServiceAK;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +24,9 @@ public class SaleServiceAK extends MainServiceAK<SaleAK> {
 	private SellerServiceAK sellerServiceAK;
 	
 	@Autowired
+	private SaleRepositoryAK saleRepositoryAK;
+	
+	@Autowired
 	public SaleServiceAK(SaleRepositoryAK saleRepositoryAK) {
 		setRepository(saleRepositoryAK);
 	}
@@ -29,5 +36,14 @@ public class SaleServiceAK extends MainServiceAK<SaleAK> {
 		log.info("Busco os vendedores primeiro( por que nesse caso são poucos ), para ficar em memoria e o JPA não precisar ir no banco varias vezes para busca-los, a cada venda");
 		sellerServiceAK.findAllDTO();
 		return findAll(pegeable).map( s -> new SaleDTOAK(s));
+	}
+	@Transactional(readOnly = true)
+	public List<SaleSumDTO> amountGroupBySeller(){
+		return saleRepositoryAK.amountGroupBySeller();
+	}
+	
+	@Transactional(readOnly = true)
+	public List<SaleSuccessDTO> successGroupBySeller(){
+		return saleRepositoryAK.successGroupBySeller();
 	}
 }
