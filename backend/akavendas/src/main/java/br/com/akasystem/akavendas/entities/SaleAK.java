@@ -28,8 +28,7 @@ public class SaleAK extends EntityMain {
 	private Integer deals;
 	private Double amount;
 	private LocalDate date;
-	private Long saller_id;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private SellerAK seller;
