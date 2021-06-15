@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.entities{SaleAK.java[SaleAK" modifiers="1" timestamp="1622743955922"/>
-    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.repository{SaleRepositoryAK.java[SaleRepositoryAK" modifiers="513" timestamp="1623295151943"/>
-    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.service{SaleServiceAK.java[SaleServiceAK" modifiers="1" timestamp="1623295800911"/>
-    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.controllers{SaleController.java[SaleController" modifiers="1" timestamp="1623296093667"/>
+    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.repository{SaleRepositoryAK.java[SaleRepositoryAK" modifiers="513" timestamp="1623465290812"/>
+    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.service{SaleServiceAK.java[SaleServiceAK" modifiers="1" timestamp="1623465117598"/>
+    <typeInfo handle="=akavendas/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.akasystem.akavendas.controllers{SaleController.java[SaleController" modifiers="1" timestamp="1623465185159"/>
 </typeInfoHistroy>
