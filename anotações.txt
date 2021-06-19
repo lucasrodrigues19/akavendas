@@ -83,7 +83,7 @@ PAREI EM 01:15:00
 		yarn add apexcharts
 		yarn add react-apexcharts
 	22 - Exemplos de graficos apexcharts.com
-PAREU EN 01:22:40
+PAREI EN 01:22:40
 
 PAREI EM 01:36:00 DA AULA 1
 
@@ -112,12 +112,97 @@ AULA 2
 PAREI NO 40:00:00
 
 	Configurando o perfil teste para liberar a visualização no H2
-	adicionando camadas
-	DTO: Objetos simples para trafegar dados, entre o service e controllers, sem que esses objetos estejam atrelados a um banco de dados e uma transanção, 
-	     para que trafegue objetos com sessão de banco de dados apenas até a service, depois que resolver o q preciso na camada de serviço vou copiar os dados da entidade para novos objetos que serão os dtos
-	
-	A entidade é monitorada pelo JPA, enquanto existir uma conexão monitorada estou com a conexão do banco aberta
-	 implements Serializable, quer dizer que pode ser convertido para byte
-PAREI NO 01:05:00
 
-	    
+	Entre a camada de serviço e o controlador vou trafegar DTO( representa uma domain em determinado contexto )
+	Toda a parte de transação com o banco, quero resolver na camada de serviço, assim copio os dados da domain para o DTO.
+
+	POSTMAN
+		Adicionane uma coleção;
+		Adicione a requisição na coleção criada;
+		Adicione um ambiente (serve para armzenar o valor dp camninho da requisição em uma variavel, Ex: {{host}}(host  = http://localhost))
+
+	DADOS POR PAGINAÇÃO
+		Quando tenho muitos dados, não busco todos de vez, busco de pouco em pouco
+		Para fazer isso no sua service no metodo que ira trazer os dados, adicionar o atributo Pageable, Ex: Pageable pageable import org.springframework.data.domain.Pageable;
+		no jpaRepository, ja tem um método que passa um Pageable como parametro e retorna um Page
+		Não esquecer de colocar o Pageable no metodo do endpoint da controller
+PAREI EM 01:18:00 (Requisição para paginação no postman )
+    PASSO 4		
+	Paginação na requisição:
+		Na requisição, para paginar pode passar como parametro o page EX: http://localhost/sales?page=2, quer dizer que quero a pagina 2 dos dados
+		Posso dizer qual vai ser o tamanho da pagina http://localhost/sales?page=2&size=10, quer dizer que quero a pagina 2 com o tamanho 10(nesse caso 10 vendas)
+		Ordenando por data: http://localhost/sales?page=2&size=10&sort=date,desc(o desc funciona para o dado mais recente para o mais antigo)
+	Evitar interações repetidas no banco
+		Quando tenho um objeto de muitos para 1, o JPA faz a busca automaticamente no banco
+		para resolver isso, nesse caso especifico, como são poucos dados, posso buscar os dados do relacionamento 
+		primeiro, assim ele faz um cash deles em memoria, ai o JPA ja vai ver que foi buscado em memoria, e não busca no banco
+		EM CIMA DE UM MÉTODO NA SERVICE
+		@Transactional(readOnly = true) (O import tem que ser do spring)//isso é para que toda operação no banco seja tratada na service, e readOnly é para não dar lock no banco, por que é so leitura
+   PASSO 5
+	Buscas agrupadas
+		@Query("SELECT new br.com.akasystem.akavendas.entities.dto.SaleSumDTO(obj.seller, SUM(obj.amount))"
+			+ " FROM SaleAK AS obj GROUP BY obj.seller")//consulta costumizada: 1- assina o metodo e depois especifica a consulta
+		//Estou fazendo uma consulta na classe Sale agrupando pelos vendedores
+		List<SaleSumDTO> amountGroupBySeller();
+PAREI EM 01:44:00 
+	criando pesquisa de soma agrupada por sale
+	Validação do postgres no local
+		Criando 3 perfis de projeto: test(h2), dev(postgres), prod(herocku)
+PAREI EM 01:55:00 
+	Validando o posgres, perfil dev
+	Para que crie script  e associe a um arquivo sql
+		spring.jpa.properties.javax.persistence.schema-generation.create-source=metadata
+		spring.jpa.properties.javax.persistence.schema-generation.scripts.action=create
+		spring.jpa.properties.javax.persistence.schema-generation.scripts.create-target=create.sql
+		spring.jpa.properties.hibernate.hbm2ddl.delimiter;
+	Depois precisa comentar tudo de novo
+	perfil prod:
+		spring.datasource.url=${DATABASE_URL} //pegando os dados de uma variavel de ambiente do heroku
+	no aplication.properties
+		spring.profiles.active=${APP_PROFILE:test} // se a variavel não estiver definida no ambiente, vai usar o perfil test
+	Arquivo: system.properties( de extrema importancia, para não da erro no heroku)
+		  precisa criar esse arquivo na raiz do projeto(não pode ter espaço em branco no final)
+	em system.properties
+		java.runtime.version=11
+
+AREI EM 02:05:00 ->configuração no heroku
+	Preparar o projeto para ser implantado = homolgação
+	
+No heroku:
+	create new app
+	Adicionar um banco: resources -> adons "postgres"
+	Adicionar uma variavel: settings
+	config vars -> reveal config vars
+	CONECTAR NO PG ADMIN:
+		pegar o valor da variavel de ambiente DATA_BASE_URL
+		postgres://
+hmjlemxxmfapbu  user
+8f1463494ca45efd86739a4aed4dcadf0ea9b10845ec85cc07121999a8ee6ebe senha
+@
+ec2-50-17-255-120.compute-1.amazonaws.com host
+:
+5432 porta
+/
+d62pb15emse094 base de dados
+	No pgAdmin:
+		Criar um novo server com os dados acima.
+		Na aba avancada, em dbRestricion, colocar o nome do banco, para não aparecer outros bancos
+		rodar os scripts no banco
+PRECISA INSTALAR O HEROKU
+PAREI EM 02:12:00
+	Precisa Instalar o heroku cli: https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+	
+ATENÇÃO AO FAZER O DEPLOY
+	git subtree push --prefix backend/akavendas heroku main --> caminho: backend/akavendas é o caminho do meu projeto a partir do diretorio de trabalho que estou
+	
+	Comandos utils, para fazer merge de uma branch com outra
+	git merge <branch> --> mistura os commits(pega o que foi feito na branch e poem na outra, faço um commit adicional) sem precisar mexer na estrutura
+	git rebase <branche> -> este comando une(deixa em um historico só) as branchs mas mexe nas estruturas
+	git reset --hard {hash-do-commit-desejado} --> volta para o comit desejado
+	git push -f origin main --> força a fazer um push depois de unificar as branchs e vc tiver certeza
+	git pull origin master --allow-unrelated-histories --> permite que o git faça o merge com dois historicos diferentes
+	Primeira homologação: c82f33bf
+	
+
+
+		
