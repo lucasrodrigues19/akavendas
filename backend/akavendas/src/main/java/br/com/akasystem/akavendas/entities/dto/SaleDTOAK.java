@@ -25,6 +25,7 @@ public class SaleDTOAK extends MainDTOAK implements Serializable {
 
 	public SaleDTOAK(SaleAK entity) {
 		super();
+		this.setId(entity.getId());
 		this.visited =entity.getVisited();
 		this.deals = entity.getDeals();
 		this.amount = entity.getAmount();
