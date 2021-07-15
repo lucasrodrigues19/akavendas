@@ -7,6 +7,7 @@ import Pagination from "components/Pagination";
 
 const DataTable  = () =>{
     const [activePage,setActivePage] = useState(0) /**Padrão observer */
+    //sempre que o estado muda o componente renderiza, é um estado unico para todo o ciclo de vida do componente
     const [page,setPage] = useState<SalePage>({
         first:true,
         number:0,
@@ -15,10 +16,11 @@ const DataTable  = () =>{
         last:true
 
     })
+    //user effect é chamado apenas na instancia do componente, ou quando activepage mudar
     useEffect(()=>{
         axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
         .then(_response =>{
-            setPage(_response.data)
+            setPage(_response.data) //mudo o estado do userEfecct
         })
     },[activePage]) /*Sempre que o activePage mudar vou fazer um get, ou seja vou ficar observando */
     const changePage = (index:number) => {

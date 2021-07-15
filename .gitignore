@@ -1,5 +1,7 @@
 #workspace
 .metadata/
+node_modules/
+frontend/node_modules
 
 # Compiled class file
 *.class
